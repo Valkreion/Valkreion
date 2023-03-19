@@ -1,3 +1,5 @@
+--View in RAW
+--Made by Valkrieon (obviously)
 rconsoleclear()
 local Loadtime = tick()
 local credits = "Made by Valkreion, open dm's at Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355"
