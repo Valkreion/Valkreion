@@ -1,35 +1,71 @@
 --View in RAW
 --Made by Valkrieon (obviously)
 rconsoleclear()
+local function runCommand(input)
+    local commandFunc = loadstring("return " .. input)
+    if commandFunc then
+        local success, result = pcall(commandFunc)
+        if not success then
+            rconsoleprint("@@RED@@")
+            rconsoleprint("Error: " .. tostring(result) .. "\n")
+        end
+    else
+        rconsoleprint("@@RED@@")
+        rconsoleprint("Error: Invalid command\n")
+    end
+end
 local Loadtime = tick()
 local credits = "Made by Valkreion, open dm's at Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355"
 print(credits)
 print("Also DO NOT use OP on proj based classes")
-local adEnabled = true
-local adResponses = {
-"bibulus.club will release (trust)",
-"ngl sluggerizbad!!1!",
-"R.I.P the crash-bots!",
-"This is a filler word",
-"flamible25 gets mad easy lol",
-"ok - goc",
-"MVM release when thou??",
-"Amelia didn't give me any chat lines, so hru?",
-"Oh my god guys! kick valk, he's hacking!!!!",
-"Being called a bot hurts alot :sob:",
-"Shout out to my homie Bush",
-"Valkreion goes public when thou??",
-"youtube/@TheBushment btw",
-"gg/8s7HQ2ygRZ btw",
-"Join the server to mald: gg/8s7HQ2ygRZ",
-"Chloe's Art Shop is pretty cool too.",
-"goc sucks - Lucke"
-}
 
-local function fireChatMessage()
-    game:GetService("ReplicatedStorage").Events.ChatMessage:FireServer("test")
-end
 local commands = { 
+    shop = function()
+        local x = {}
+for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+x[#x + 1] = v.id
+end
+end
+if #x > 0 then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+else
+rconsoleprint("Server not found.")
+end
+end,
+     serverhop = function()
+         local x = {}
+for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+x[#x + 1] = v.id
+end
+end
+if #x > 0 then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+else
+rconsoleprint("Server not found.")
+end
+end,
+     ad = function()
+        local adResponses = {
+            "bibulus.club will release (trust)",
+            "Valkreion is cool ngl",
+            "",
+            "test4",
+            "test5",
+            "test6",
+            "test7",
+            "test8",
+            "test9",
+            "test10",
+        }
+        while true do
+            local randomResponse = adResponses[math.random(#adResponses)]
+            local h = game:GetService("ReplicatedStorage").Events.ChatMessage
+            h:FireServer(randomResponse)
+            wait(3.87)
+        end
+    end,
             clear = function()
             rconsoleclear()
             rconsoleprint("@@LIGHT_CYAN@@")
@@ -182,7 +218,7 @@ rconsoleprint("- clear: clears the console\n")
     end,
 }
 
-rconsolename("Valkreion-shitz")
+rconsolename("Valkreion")
 rconsoleprint("@@LIGHT_CYAN@@")
 rconsoleprint([[
     ____   ____      .__   __                   .__               
@@ -218,15 +254,14 @@ rconsoleprint("@@WHITE@@")
 
 while true do
     local input = rconsoleinput()
+    local command = string.match(input, "%w+")
 
-    if string.sub(input, 1, 2) == "ws" then
-        local speed = string.sub(input, 4)
-        commands["ws"](speed)
-    elseif commands[input] then
-        commands[input]()
-    elseif input == "help" then
-        rconsoleprint("@@YELLOW@@")
-        rconsoleprint("Available commands:\n")
+    if commands[command] then
+        local argument = string.sub(input, #command + 2)
+        commands[command](argument)
+    elseif command == "help" then
+rconsoleprint("@@YELLOW@@")
+rconsoleprint("Available commands:\n")
 rconsoleprint("- infammo: Enables infinite ammo\n")
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
 rconsoleprint("- spin: Makes your character spin\n")
@@ -238,5 +273,11 @@ rconsoleprint("- op: Makes your gunz overpowered\n")
 rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
+        for cmd, _ in pairs(commands) do
+            rconsoleprint("- " .. cmd .. "\n")
+        end
+    else
+        rconsoleprint("@@RED@@")
+        rconsoleprint("Error: Invalid command\n")
     end
 end
