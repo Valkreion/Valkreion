@@ -1,6 +1,6 @@
+if game.PlaceId == 328028363 then 
 --View in RAW
 --Made by Valkrieon (obviously)
-print("The chat messages are not finished, please edit them (line 71)")
 game.Players.LocalPlayer.CharacterRemoving:Connect(function()
 local x = {}
 for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
@@ -35,8 +35,8 @@ print(credits)
 print("Also DO NOT use OP on proj based classes")
 
 local commands = { 
-    selfban = function()
-        game:GetService("ReplicatedStorage").Weapons.M60.FireRate.Value = 9999999999999
+    cum = function()
+    rconsoleinfo("cum lmao")
 end,
     re = function()
         local loadcharacter = game:GetService("ReplicatedStorage").Events.LoadCharacter
@@ -69,17 +69,18 @@ rconsoleprint("Server not found.")
 end
 end,
      ad = function()
-        local adResponses = {
+        local adResponses = { --Customize these if you want
             "bibulus.club will release (trust)",
             "Valkreion is cool ngl",
-            "",
-            "test4",
-            "test5",
-            "test6",
-            "test7",
-            "test8",
-            "test9",
-            "test10",
+            "geoduude is epic :sunglasses:",
+            "youtube/@TheBushment btw",
+            "This took me 2 days to code-",
+            "Cant wait for MVM!",
+            "gg/sPfWp6jT2s join for da shz",
+            "Lucke never game me a chat line, so hru?",
+            "Amelia didn't give me a chatline, so hru?",
+            "this is the 10th line in the *local adResponses* btw",
+            "🤠"
         }
         while true do
             local randomResponse = adResponses[math.random(#adResponses)]
@@ -105,18 +106,34 @@ rconsoleprint("Made by **Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355** \n")
 rconsoleprint("Available commands:\n")
 rconsoleprint("@@RED@@")
 rconsoleprint("- infammo: Enables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- spin: Makes your character spin\n")
+wait(0.1)
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
+wait(0.1)
 rconsoleprint("- help: Self Explanatory\n")
+wait(0.1)
 rconsoleprint("- mapdetect: Currently broken :(\n")
-rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
-rconsoleprint("- op: makes your gunz overpowered\n")
-rconsoleprint("- ad: advertises Valkreion\n")
+wait(0.1)
+rconsoleprint("- parvus: Loads Parvus Hub\n")
+wait(0.1)
+rconsoleprint("- op: Makes your gunz overpowered\n")
+wait(0.1)
+rconsoleprint("- ad: Advertises Valkreion\n")
+wait(0.1)
 rconsoleprint("- shop: Serverhops\n")
+wait(0.1)
 rconsoleprint("- serverhop: serverhops\n")
+wait(0.1)
 rconsoleprint("- re: refreshes local char\n")
-rconsoleprint("- selfban: literally just bans you, dont use\n")
+wait(0.1)
+rconsoleprint("- selfban: just why?\n")
+wait(0.1)
+rconsoleprint("- cum: cum lmao\n")
+wait(0.1)
+rconsoleprint("- modammo: mods ammo\n")
 rconsoleprint("@@WHITE@@")
 rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
 rconsoleprint("- Also if anything breaks (Like you cant type)\n")
@@ -154,7 +171,7 @@ end,
         local Branch = IsDevelopmentBranch and "development" or "main"
         local Source = "https://raw.githubusercontent.com/AlexR32/Parvus/" .. Branch .. "/"
         loadstring(game:HttpGet(Source .. "Loader.lua"),"Loader")(Branch,NotificationTime)
-        rconsoleprint("parvus hub was ran, not by me btw\n I'm just too fucking lazy to make something good.\n")
+        rconsoleprint("parvus hub was executed, If you server hop there is no need to re-execute!\n")
 end,
     invis = function()
         rconsoleprint("Invis is enabled\n")
@@ -225,19 +242,34 @@ end,
         rconsoleprint("@@YELLOW@@")
         rconsoleprint("Available commands:\n")
 rconsoleprint("- infammo: Enables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- spin: Makes your character spin\n")
+wait(0.1)
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
+wait(0.1)
 rconsoleprint("- help: Self Explanatory\n")
+wait(0.1)
 rconsoleprint("- mapdetect: Currently broken :(\n")
-rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
+wait(0.1)
+rconsoleprint("- parvus: Loads Parvus Hub\n")
+wait(0.1)
 rconsoleprint("- op: Makes your gunz overpowered\n")
+wait(0.1)
 rconsoleprint("- ad: Advertises Valkreion\n")
+wait(0.1)
 rconsoleprint("- shop: Serverhops\n")
+wait(0.1)
 rconsoleprint("- serverhop: serverhops\n")
-rconsoleprint("- clear: clears the console\n")
+wait(0.1)
 rconsoleprint("- re: refreshes local char\n")
-rconsoleprint("- selfban: literally just bans you, dont use\n")
+wait(0.1)
+rconsoleprint("- selfban: just why?\n")
+wait(0.1)
+rconsoleprint("- cum: cum lmao\n")
+wait(0.1)
+rconsoleprint("- modammo: mods ammo\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
         end
@@ -256,28 +288,49 @@ rconsoleprint([[
     ]])
 
 rconsoleprint("@@MAGENTA@@")
+wait(0.1)
 rconsoleprint("Made by **Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355** \n")
+wait(0.1)
 rconsoleprint("Available commands:\n")
 rconsoleprint("@@RED@@")
 rconsoleprint("- infammo: Enables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- spin: Makes your character spin\n")
+wait(0.1)
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
+wait(0.1)
 rconsoleprint("- help: Self Explanatory\n")
+wait(0.1)
 rconsoleprint("- mapdetect: Currently broken :(\n")
-rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
+wait(0.1)
+rconsoleprint("- parvus: Loads Parvus Hub\n")
+wait(0.1)
 rconsoleprint("- op: Makes your gunz overpowered\n")
+wait(0.1)
 rconsoleprint("- ad: Advertises Valkreion\n")
+wait(0.1)
 rconsoleprint("- shop: Serverhops\n")
+wait(0.1)
 rconsoleprint("- serverhop: serverhops\n")
+wait(0.1)
 rconsoleprint("- re: refreshes local char\n")
-rconsoleprint("- selfban: literally just bans you, dont use\n")
+wait(0.1)
+rconsoleprint("- selfban: just why?\n")
+wait(0.1)
+rconsoleprint("- cum: cum lmao\n")
+wait(0.1)
+rconsoleprint("- modammo: mods ammo\n")
+wait(0.5)
 rconsoleprint("@@WHITE@@")
 rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
 rconsoleprint("- Also if anything breaks (Like you cant type)\n")
 rconsoleprint("- Just re-execute the script.\n")
+wait(0.5)
 rconsoleprint("@@MAGENTA@@")
 rconsoleprint("It took " .. (tick()-Loadtime)*1000 .. " milliseconds to load!\n")
+wait(0.5)
 rconsoleprint("@@WHITE@@")
 rconsoleprint("Auto-Server-Hop was loaded.\n")
 
@@ -292,18 +345,34 @@ while true do
 rconsoleprint("@@YELLOW@@")
 rconsoleprint("Available commands:\n")
 rconsoleprint("- infammo: Enables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
+wait(0.1)
 rconsoleprint("- spin: Makes your character spin\n")
+wait(0.1)
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
+wait(0.1)
 rconsoleprint("- help: Self Explanatory\n")
-rconsoleprint("- mapdetect: Currently broke :frown:\n")
-rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
+wait(0.1)
+rconsoleprint("- mapdetect: Currently broken :(\n")
+wait(0.1)
+rconsoleprint("- parvus: Loads Parvus Hub\n")
+wait(0.1)
 rconsoleprint("- op: Makes your gunz overpowered\n")
+wait(0.1)
 rconsoleprint("- ad: Advertises Valkreion\n")
+wait(0.1)
 rconsoleprint("- shop: Serverhops\n")
+wait(0.1)
 rconsoleprint("- serverhop: serverhops\n")
+wait(0.1)
 rconsoleprint("- re: refreshes local char\n")
-rconsoleprint("- selfban: literally just bans you, dont use\n")
+wait(0.1)
+rconsoleprint("- selfban: just why?\n")
+wait(0.1)
+rconsoleprint("- cum: cum lmao\n")
+wait(0.1)
+rconsoleprint("- modammo: mods ammo\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
         end
@@ -312,4 +381,12 @@ rconsoleprint("- selfban: literally just bans you, dont use\n")
         rconsoleprint("Error: Invalid command\n")
         rconsoleprint("@@WHITE@@")
     end
+end
+else 
+rconsolename("Valkreion Failed to load, try executing in the correct fucking game.")
+rconsoleprint("@@RED@@")
+for i = 1,5 do 
+rconsoleprint("ERROR: NOT IN TC2\n")
+wait(0.05)
+end
 end
