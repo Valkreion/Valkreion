@@ -22,13 +22,49 @@ local adResponses = {
 "youtube/@TheBushment btw",
 "gg/8s7HQ2ygRZ btw",
 "Join the server to mald: gg/8s7HQ2ygRZ",
-"Chloe's Art Shop is pretty cool too."
+"Chloe's Art Shop is pretty cool too.",
+"goc sucks - Lucke"
 }
 
 local function fireChatMessage()
     game:GetService("ReplicatedStorage").Events.ChatMessage:FireServer("test")
 end
 local commands = { 
+            clear = function()
+            rconsoleclear()
+            rconsoleprint("@@LIGHT_CYAN@@")
+rconsoleprint([[
+    ____   ____      .__   __                   .__               
+\   \ /   /____  |  | |  | _________   ____ |__| ____   ____  
+ \   Y   /\__  \ |  | |  |/ /\_  __ \_/ __ \|  |/  _ \ /    \ 
+  \     /  / __ \|  |_|    <  |  | \/\  ___/|  (  <_> )   |  \
+   \___/  (____  /____/__|_ \ |__|    \___  >__|\____/|___|  /
+               \/          \/             \/               \/ 
+    ]])
+
+rconsoleprint("@@MAGENTA@@")
+rconsoleprint("Made by **Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355** \n")
+rconsoleprint("Available commands:\n")
+rconsoleprint("@@RED@@")
+rconsoleprint("- infammo: Enables infinite ammo\n")
+rconsoleprint("- uninfammo: Disables infinite ammo\n")
+rconsoleprint("- spin: Makes your character spin\n")
+rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
+rconsoleprint("- help: Self Explanatory\n")
+rconsoleprint("- mapdetect: Currently broken :(\n")
+rconsoleprint("- parvus: Loads Parvus Hub\n")
+rconsoleprint("- op: Makes your gunz overpowered\n")
+rconsoleprint("- ad: Advertises Valkreion\n")
+rconsoleprint("- shop: Serverhops\n")
+rconsoleprint("- serverhop: serverhops\n")
+rconsoleprint("@@WHITE@@")
+rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
+rconsoleprint("- Also if anything breaks (Like you cant type)\n")
+rconsoleprint("- Just re-execute the script.\n")
+rconsoleprint("@@MAGENTA@@")
+rconsoleprint("It took " .. (tick()-Loadtime)*1000 .. " milliseconds to load!\n")
+rconsoleprint("@@WHITE@@")
+            end,
             shop = function()
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
         rconsoleprint("Hopping servers!\n")
@@ -149,6 +185,7 @@ rconsoleprint("- op: Makes your gunz overpowered\n")
 rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
+rconsoleprint("- clear: clears the console\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
         end
