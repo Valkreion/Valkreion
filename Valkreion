@@ -22,6 +22,7 @@ local adResponses = {
 "youtube/@TheBushment btw",
 "gg/8s7HQ2ygRZ btw",
 "Join the server to mald: gg/8s7HQ2ygRZ"
+"Chloe's Art Shop is pretty cool too."
 }
 
 local function fireChatMessage()
