@@ -34,6 +34,9 @@ print(credits)
 print("Also DO NOT use OP on proj based classes")
 
 local commands = { 
+    selfban = function()
+        game:GetService("ReplicatedStorage").Weapons.M60.FireRate.Value = 9999999999999
+end,
     re = function()
         local loadcharacter = game:GetService("ReplicatedStorage").Events.LoadCharacter
         loadcharacter:FireServer()
@@ -65,17 +68,17 @@ rconsoleprint("Server not found.")
 end
 end,
      ad = function()
-        local adResponses = { --Customize these if you want
+        local adResponses = {
             "bibulus.club will release (trust)",
             "Valkreion is cool ngl",
-            "geoduude is epic :sunglasses:",
-            "youtube/@TheBushment btw",
-            "This took me 2 days to code-",
-            "Cant wait for MVM!",
-            "gg/sPfWp6jT2s join for da shz",
-            "Lucke never game me a chat line, so hru?",
-            "Amelia didn't give me a chatline, so hru?",
-            "this is the 10th line in the "local adResponses" btw",
+            "",
+            "test4",
+            "test5",
+            "test6",
+            "test7",
+            "test8",
+            "test9",
+            "test10",
         }
         while true do
             local randomResponse = adResponses[math.random(#adResponses)]
@@ -106,12 +109,13 @@ rconsoleprint("- spin: Makes your character spin\n")
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
 rconsoleprint("- help: Self Explanatory\n")
 rconsoleprint("- mapdetect: Currently broken :(\n")
-rconsoleprint("- parvus: Loads Parvus Hub\n")
+rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
 rconsoleprint("- op: makes your gunz overpowered\n")
 rconsoleprint("- ad: advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
 rconsoleprint("- re: refreshes local char\n")
+rconsoleprint("- selfban: literally just bans you, dont use\n")
 rconsoleprint("@@WHITE@@")
 rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
 rconsoleprint("- Also if anything breaks (Like you cant type)\n")
@@ -149,7 +153,7 @@ end,
         local Branch = IsDevelopmentBranch and "development" or "main"
         local Source = "https://raw.githubusercontent.com/AlexR32/Parvus/" .. Branch .. "/"
         loadstring(game:HttpGet(Source .. "Loader.lua"),"Loader")(Branch,NotificationTime)
-        rconsoleprint("parvus hub was executed, If you server hop there is no need to re-execute!\n")
+        rconsoleprint("parvus hub was ran, not by me btw\n I'm just too fucking lazy to make something good.\n")
 end,
     invis = function()
         rconsoleprint("Invis is enabled\n")
@@ -225,13 +229,14 @@ rconsoleprint("- spin: Makes your character spin\n")
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
 rconsoleprint("- help: Self Explanatory\n")
 rconsoleprint("- mapdetect: Currently broken :(\n")
-rconsoleprint("- parvus: Loads Parvus Hub\n")
+rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
 rconsoleprint("- op: Makes your gunz overpowered\n")
 rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
 rconsoleprint("- clear: clears the console\n")
 rconsoleprint("- re: refreshes local char\n")
+rconsoleprint("- selfban: literally just bans you, dont use\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
         end
@@ -259,12 +264,13 @@ rconsoleprint("- spin: Makes your character spin\n")
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
 rconsoleprint("- help: Self Explanatory\n")
 rconsoleprint("- mapdetect: Currently broken :(\n")
-rconsoleprint("- parvus: Loads Parvus Hub\n")
+rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
 rconsoleprint("- op: Makes your gunz overpowered\n")
 rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
 rconsoleprint("- re: refreshes local char\n")
+rconsoleprint("- selfban: literally just bans you, dont use\n")
 rconsoleprint("@@WHITE@@")
 rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
 rconsoleprint("- Also if anything breaks (Like you cant type)\n")
@@ -290,12 +296,13 @@ rconsoleprint("- spin: Makes your character spin\n")
 rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
 rconsoleprint("- help: Self Explanatory\n")
 rconsoleprint("- mapdetect: Currently broke :frown:\n")
-rconsoleprint("- parvus: Loads Parvus Hub\n")
+rconsoleprint("- parvus: Loads Parvus Hub (not mine btw!)\n")
 rconsoleprint("- op: Makes your gunz overpowered\n")
 rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
 rconsoleprint("- re: refreshes local char\n")
+rconsoleprint("- selfban: literally just bans you, dont use\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
         end
