@@ -1,6 +1,4 @@
 if game.PlaceId == 328028363 then 
---View in RAW
---Made by Valkrieon (obviously)
 game.Players.LocalPlayer.CharacterRemoving:Connect(function()
 local x = {}
 for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
@@ -74,11 +72,12 @@ end,
             "Valkreion is cool ngl",
             "geoduude is epic :sunglasses:",
             "youtube/@TheBushment btw",
-            "This took me 2 days to code-",
+            "This took me like 3 days to code-",
             "Cant wait for MVM!",
             "gg/sPfWp6jT2s join for da shz",
-            "Lucke never game me a chat line, so hru?",
-            "Amelia didn't give me a chatline, so hru?",
+            "This is public btw",
+            "yes - amelia",
+            "RAC sucks at detecting.",
             "this is the 10th line in the *local adResponses* btw",
             "🤠"
         }
@@ -111,11 +110,7 @@ rconsoleprint("- uninfammo: Disables infinite ammo\n")
 wait(0.1)
 rconsoleprint("- spin: Makes your character spin\n")
 wait(0.1)
-rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
-wait(0.1)
 rconsoleprint("- help: Self Explanatory\n")
-wait(0.1)
-rconsoleprint("- mapdetect: Currently broken :(\n")
 wait(0.1)
 rconsoleprint("- parvus: Loads Parvus Hub\n")
 wait(0.1)
@@ -151,21 +146,6 @@ end,
     unad = function()
         adEnabled = false
 end,
-
-     ws = function(args)
-        local num = tonumber(args)
-        if num then
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = num
-            rconsoleprint("Walkspeed set to " .. num .. "\n")
-            while true do
-                if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= num then
-                    break
-                end
-                wait()
-            end
-        end
-end,
-
     parvus = function()
         local IsDevelopmentBranch,NotificationTime = false,5
         local Branch = IsDevelopmentBranch and "development" or "main"
@@ -247,11 +227,7 @@ rconsoleprint("- uninfammo: Disables infinite ammo\n")
 wait(0.1)
 rconsoleprint("- spin: Makes your character spin\n")
 wait(0.1)
-rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
-wait(0.1)
 rconsoleprint("- help: Self Explanatory\n")
-wait(0.1)
-rconsoleprint("- mapdetect: Currently broken :(\n")
 wait(0.1)
 rconsoleprint("- parvus: Loads Parvus Hub\n")
 wait(0.1)
@@ -350,11 +326,7 @@ rconsoleprint("- uninfammo: Disables infinite ammo\n")
 wait(0.1)
 rconsoleprint("- spin: Makes your character spin\n")
 wait(0.1)
-rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
-wait(0.1)
 rconsoleprint("- help: Self Explanatory\n")
-wait(0.1)
-rconsoleprint("- mapdetect: Currently broken :(\n")
 wait(0.1)
 rconsoleprint("- parvus: Loads Parvus Hub\n")
 wait(0.1)
@@ -385,8 +357,8 @@ end
 else 
 rconsolename("Valkreion Failed to load, try executing in the correct fucking game.")
 rconsoleprint("@@RED@@")
-for i = 1,5 do 
-rconsoleprint("ERROR: NOT IN TC2\n")
-wait(0.05)
+for i = 1,69420 do 
+rconsoleprint("ERROR: not in correct game.\n")
+wait(1)
 end
 end
