@@ -1,5 +1,19 @@
 --View in RAW
 --Made by Valkrieon (obviously)
+game.Players.LocalPlayer.CharacterRemoving:Connect(function()
+local x = {}
+for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
+if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+x[#x + 1] = v.id
+end
+end
+if #x > 0 then
+game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
+else
+rconsoleprint("Server not found.")
+end
+end)
+
 rconsoleclear()
 local function runCommand(input)
     local commandFunc = loadstring("return " .. input)
@@ -20,6 +34,10 @@ print(credits)
 print("Also DO NOT use OP on proj based classes")
 
 local commands = { 
+    re = function()
+        local loadcharacter = game:GetService("ReplicatedStorage").Events.LoadCharacter
+        loadcharacter:FireServer()
+    end,
     shop = function()
         local x = {}
 for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
@@ -47,17 +65,17 @@ rconsoleprint("Server not found.")
 end
 end,
      ad = function()
-        local adResponses = {
+        local adResponses = { --Customize these if you want
             "bibulus.club will release (trust)",
             "Valkreion is cool ngl",
-            "",
-            "test4",
-            "test5",
-            "test6",
-            "test7",
-            "test8",
-            "test9",
-            "test10",
+            "geoduude is epic :sunglasses:",
+            "youtube/@TheBushment btw",
+            "This took me 2 days to code-",
+            "Cant wait for MVM!",
+            "gg/sPfWp6jT2s join for da shz",
+            "Lucke never game me a chat line, so hru?",
+            "Amelia didn't give me a chatline, so hru?",
+            "this is the 10th line in the "local adResponses" btw",
         }
         while true do
             local randomResponse = adResponses[math.random(#adResponses)]
@@ -89,10 +107,11 @@ rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
 rconsoleprint("- help: Self Explanatory\n")
 rconsoleprint("- mapdetect: Currently broken :(\n")
 rconsoleprint("- parvus: Loads Parvus Hub\n")
-rconsoleprint("- op: Makes your gunz overpowered\n")
-rconsoleprint("- ad: Advertises Valkreion\n")
+rconsoleprint("- op: makes your gunz overpowered\n")
+rconsoleprint("- ad: advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
+rconsoleprint("- re: refreshes local char\n")
 rconsoleprint("@@WHITE@@")
 rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
 rconsoleprint("- Also if anything breaks (Like you cant type)\n")
@@ -212,6 +231,7 @@ rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
 rconsoleprint("- clear: clears the console\n")
+rconsoleprint("- re: refreshes local char\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
         end
@@ -244,6 +264,7 @@ rconsoleprint("- op: Makes your gunz overpowered\n")
 rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
+rconsoleprint("- re: refreshes local char\n")
 rconsoleprint("@@WHITE@@")
 rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
 rconsoleprint("- Also if anything breaks (Like you cant type)\n")
@@ -251,6 +272,7 @@ rconsoleprint("- Just re-execute the script.\n")
 rconsoleprint("@@MAGENTA@@")
 rconsoleprint("It took " .. (tick()-Loadtime)*1000 .. " milliseconds to load!\n")
 rconsoleprint("@@WHITE@@")
+rconsoleprint("Auto-Server-Hop was loaded.\n")
 
 while true do
     local input = rconsoleinput()
@@ -273,11 +295,13 @@ rconsoleprint("- op: Makes your gunz overpowered\n")
 rconsoleprint("- ad: Advertises Valkreion\n")
 rconsoleprint("- shop: Serverhops\n")
 rconsoleprint("- serverhop: serverhops\n")
+rconsoleprint("- re: refreshes local char\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
         end
     else
         rconsoleprint("@@RED@@")
         rconsoleprint("Error: Invalid command\n")
+        rconsoleprint("@@WHITE@@")
     end
 end
