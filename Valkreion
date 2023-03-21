@@ -29,7 +29,7 @@ if game.PlaceId == 328028363 then
         end
     end
     local Loadtime = tick()
-    local credits = "Made by Valkreion, open dm's at Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355"
+    local credits = "Made by Valkreion, open dm's at Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355 (with help from xRohan#7229)"
     print(credits)
     print("Also DO NOT use OP on proj based classes")
     
