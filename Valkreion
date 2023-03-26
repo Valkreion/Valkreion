@@ -1,6 +1,17 @@
-if game.PlaceId == 328028363 then 
---View in RAW
---Made by Valkrieon (obviously)
+if game.PlaceId == 328028363 then
+local AntiCheatHook
+AntiCheatHook = hookmetamethod(game,"__namecall",newcclosure(function(Self,...)
+    local Args = {...}
+    local Method = getnamecallmethod()
+
+    if Method == "FireServer" and not checkcaller() then
+        if typeof(Self) == "Instance" and (Self.Name == "empty" or Self.Name == "BeanBoozled") and typeof(Args[1]) == "string" and (Args[1]:lower():match("goodbye") or Args[1]:lower():match("error")) then
+            warn("Ban circumvented from remote:",Self.Name)
+            return wait(9e9)
+        end
+    end
+    return AntiCheatHook(Self,...)
+end))
 game.Players.LocalPlayer.CharacterRemoving:Connect(function()
 local x = {}
 for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
@@ -72,7 +83,7 @@ end,
         local adResponses = { --Customize these if you want
             "bibulus.club will release (trust)",
             "Aunarky thou 💖💖",
-            "digifan27 was a good friend frfr",
+            "Beep Boop! or what-ever noises bots make.",
             "playing on both teams and still losing 🙏 -Rorschach",
             "best FB = Rorschach",
             "Cant wait for MVM!",
@@ -81,7 +92,7 @@ end,
             "Waternoice iz pretty weird",
             "Beep Boop!",
             "tc2 = nn$ m3et up",
-            "Kick Valkreion!!!",
+            "Kick Valk!!!",
             "pwning nn$ evryday -xRohan",
             "!!",
             "tffffff haxor",
@@ -89,10 +100,10 @@ end,
             "nn$ want 2 talk Rorschach 7299",
             "Malding cuz Balling",
             "Lucke is valid",
-            "SalteaTM aint' valid",
-            "ong Chloenpokkemon is valid",
+            "fillerword!!!",
             "goc aint' valid bru",
             "Buppsy wuz cool",
+            "",
             "🤠"
         }
         while true do
@@ -345,7 +356,7 @@ rconsoleprint("@@MAGENTA@@")
 rconsoleprint("It took " .. (tick()-Loadtime)*1000 .. " milliseconds to load!\n")
 wait(0.1)
 rconsoleprint("@@WHITE@@")
-rconsoleprint("Auto-Server-Hop was loaded.\n")
+rconsoleprint("No Whitelisted players found.\n")
 
 while true do
     local input = rconsoleinput()
@@ -395,11 +406,27 @@ rconsoleprint("- modammo: mods ammo\n")
         rconsoleprint("@@WHITE@@")
     end
 end
-else 
-rconsolename("Valkreion")
-rconsoleprint("@@RED@@")
-for i = 1,69420 do 
-rconsoleprint("homie, this shit dont work in different gamez\n")
-wait(1)
 end
+if game.PlaceId == 8947656544 then
+rconsoleclear()
+rconsoleprint("@@LIGHT_CYAN@@")
+rconsoleprint("This is barely supported lol, I will still try to find things to exploit!\n")
+else
+rconsolename("unsupported game")
+rconsoleprint("@@WHITE@@")
+rconsoleprint("Unsupported game!")
 end
+repeat wait() until game:IsLoaded()
+
+function handle(args)
+    for i,p in pairs({"ItsMeLucke","chloenpokkemon","xIcebergs","flamible25","c_asedy"}) do
+        if table.find(args, p) then
+            game:GetService("ReplicatedStorage").Events.ChatMessage:FireServer("mb bae")
+            break
+        end
+    end
+end
+
+game:GetService("ReplicatedStorage").Events.ChatChatted.OnClientEvent:Connect(function(speaker, message)
+    handle(string.split(message, " "))
+end)
