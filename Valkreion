@@ -79,93 +79,41 @@ else
 rconsoleprint("Server not found.")
 end
 end,
-     ad = function()
+    ad = function()
+    local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local playersList = {}
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        table.insert(playersList, player)
+    end
+end
+
+local randomPlayer = playersList[math.random(1, #playersList)]
+
+        local ligma = game.Players.LocalPlayer.Name
+        local valkk = "Valkreion"
+        
         local adResponses = { --Customize these if you want
-            "bibulus.club will release (trust)",
-            "Aunarky thou 💖💖",
-            "Beep Boop! or what-ever noises bots make.",
-            "playing on both teams and still losing 🙏 -Rorschach",
-            "best FB = Rorschach",
-            "Cant wait for MVM!",
-            "#freeyoungthug",
-            "Rorschassie 💖 (satire)",
-            "Waternoice iz pretty weird",
-            "Beep Boop!",
-            "tc2 = nn$ m3et up",
-            "Kick Valk!!!",
-            "pwning nn$ evryday -xRohan",
-            "!!",
-            "tffffff haxor",
-            "blocked",
-            "nn$ want 2 talk Rorschach 7299",
-            "Malding cuz Balling",
-            "Lucke is valid",
-            "fillerword!!!",
-            "goc aint' valid bru",
-            "Buppsy wuz cool",
-            "",
-            "🤠"
+            randomPlayer.Name.." 💖",
+            randomPlayer.Name.."iz my new bae",
+            randomPlayer.Name.."i$ a nn",
+            randomPlayer.Name.."Why you playing nn$ m3et up!?",
+            "thug line spam 😴",
+            "flanker.co sux -xRohan",
+            "Sluggerizbad",
+            "Rorschannie 💖",
+            "As we speak I am contacting my mom, she has alot of swag, so you better prepare for the yolo, n1",
+            randomPlayer.DisplayName.." / "randomplayer.Name.."Is cool ong"
         }
         while true do
             local randomResponse = adResponses[math.random(#adResponses)]
-            local h = game:GetService("ReplicatedStorage").Events.ChatMessage
-            h:FireServer(randomResponse)
-            wait(1.935)
+            local speak = game:GetService("ReplicatedStorage").Events.ChatMessage
+            speak:FireServer(randomResponse)
+            wait(3.8726652)
         end
     end,
-            clear = function()
-            rconsoleclear()
-            rconsoleprint("@@LIGHT_CYAN@@")
-rconsoleprint([[
-    ____   ____      .__   __                   .__               
-\   \ /   /____  |  | |  | _________   ____ |__| ____   ____  
- \   Y   /\__  \ |  | |  |/ /\_  __ \_/ __ \|  |/  _ \ /    \ 
-  \     /  / __ \|  |_|    <  |  | \/\  ___/|  (  <_> )   |  \
-   \___/  (____  /____/__|_ \ |__|    \___  >__|\____/|___|  /
-               \/          \/             \/               \/ 
-    ]])
-
-rconsoleprint("@@MAGENTA@@")
-rconsoleprint("Made by **Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355** \n")
-rconsoleprint("Available commands:\n")
-rconsoleprint("@@RED@@")
-rconsoleprint("- infammo: Enables infinite ammo\n")
-wait(0.1)
-rconsoleprint("- uninfammo: Disables infinite ammo\n")
-wait(0.1)
-rconsoleprint("- spin: Makes your character spin\n")
-wait(0.1)
-rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
-wait(0.1)
-rconsoleprint("- help: Self Explanatory\n")
-wait(0.1)
-rconsoleprint("- mapdetect: Currently broken :(\n")
-wait(0.1)
-rconsoleprint("- parvus: Loads Parvus Hub\n")
-wait(0.1)
-rconsoleprint("- op: Makes your gunz overpowered\n")
-wait(0.1)
-rconsoleprint("- ad: Advertises Valkreion\n")
-wait(0.1)
-rconsoleprint("- shop: Serverhops\n")
-wait(0.1)
-rconsoleprint("- serverhop: serverhops\n")
-wait(0.1)
-rconsoleprint("- re: refreshes local char\n")
-wait(0.1)
-rconsoleprint("- selfban: just why?\n")
-wait(0.1)
-rconsoleprint("- cum: cum lmao\n")
-wait(0.1)
-rconsoleprint("- modammo: mods ammo\n")
-rconsoleprint("@@WHITE@@")
-rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
-rconsoleprint("- Also if anything breaks (Like you cant type)\n")
-rconsoleprint("- Just re-execute the script.\n")
-rconsoleprint("@@MAGENTA@@")
-rconsoleprint("It took " .. (tick()-Loadtime)*1000 .. " milliseconds to load!\n")
-rconsoleprint("@@WHITE@@")
-            end,
             shop = function()
 local TeleportService = game:GetService("TeleportService")
 local gameId = game.PlaceId
