@@ -8,4 +8,5 @@
 --added a whitelist for certain Players\Friends
 --re-done the whole "ad" function 
 --Made "ad" also say random names in shit, example: randomPlayer.DisplayName.." / "randomplayer.Name.."Is cool ong"
+--removed the previous "ad" line because I cant fucking code
 --kthxbai
