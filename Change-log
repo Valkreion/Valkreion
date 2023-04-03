@@ -1,12 +1,20 @@
---added cool asf ascii art
---make it so after the loaded time the text is white (huge update ik)
---uhhhhh no fuckin' clue what to add next so dm me some ideas 
---tried adding to v3rm but they strict asf about their policy 
---added 2 extra line(s) to the "ad"
---added a comma to work better (lol)
---fixed serverhop
---added a whitelist for certain Players\Friends
---re-done the whole "ad" function 
---Made "ad" also say random names in shit, example: randomPlayer.DisplayName.." / "randomplayer.Name.."Is cool ong"
---removed the previous "ad" line because I cant fucking code
---kthxbai
+added cool asf ascii art
+make it so after the loaded time the text is white (huge update ik)
+uhhhhh no fuckin' clue what to add next so dm me some ideas 
+tried adding to v3rm but they strict asf about their policy 
+added 2 extra line(s) to the "ad"
+added a comma to work better (lol)
+fixed serverhop
+added a whitelist for certain Players\Friends
+re-done the whole "ad" function 
+Made "ad" also say random names in shit, example: randomPlayer.DisplayName.." / "randomplayer.Name.."Is cool ong"
+removed the previous "ad" line because I cant fucking code
+kthxbai
+
+Under here is prolly where I will put the "Plans" for my shitz 
+--------------------------------------------------------------
+1. Instead of using the gui, I might try to port it to an ACTUAL gui.
+2. Find a chat-script that wasn't detected immediatly due to ROLVe (fuck you <3)
+3. Make a development branch of the script so people can choose either "Main" or "Development" (Development will have more things in it, but more detectable (I think))
+4. Attempt to spoof the "Announcement" Event to say shit
+5. 
