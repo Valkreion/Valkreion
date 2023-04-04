@@ -1,5 +1,22 @@
 if game.PlaceId == 328028363 then
-local AntiCheatHook
+local commandfunctions = {
+    "infammo",
+    "uninfammo",
+    "reach",
+    "invis",
+    "op",
+    "parvus",
+    "re",
+    "ad (Don't use broken)",
+    "shop",
+    "serverhop",
+    "ws (broken)",
+    "noDMG",
+    "spin",
+    "help"
+    
+}
+local AntiCheatHook-- literally doesn't work lol
 AntiCheatHook = hookmetamethod(game,"__namecall",newcclosure(function(Self,...)
     local Args = {...}
     local Method = getnamecallmethod()
@@ -12,19 +29,6 @@ AntiCheatHook = hookmetamethod(game,"__namecall",newcclosure(function(Self,...)
     end
     return AntiCheatHook(Self,...)
 end))
-game.Players.LocalPlayer.CharacterRemoving:Connect(function()
-local x = {}
-for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
-if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
-x[#x + 1] = v.id
-end
-end
-if #x > 0 then
-game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
-else
-rconsoleprint("Server not found.")
-end
-end)
 
 rconsoleclear()
 local function runCommand(input)
@@ -96,14 +100,10 @@ local randomPlayer = playersList[math.random(1, #playersList)]
         local valkk = "Valkreion"
         
         local adResponses = { --Customize these if you want
-            randomPlayer.Name.." 💖",
-            randomPlayer.Name.."iz my new bae",
-            randomPlayer.Name.."i$ a nn",
-            randomPlayer.Name.."Why you playing nn$ m3et up!?",
+            "Why you playing nn$ m3et up!?",
             "thug line spam 😴",
             "flanker.co sux -xRohan",
             "Sluggerizbad",
-            "Rorschannie 💖",
             "As we speak I am contacting my mom, she has alot of swag, so you better prepare for the yolo, n1"
         }
         while true do
@@ -201,6 +201,27 @@ end,
         game.ReplicatedStorage.VIPSettings.InfAmmo.Value = true
         rconsoleprint("infammo was executed\n")
     end,
+    reach = function()
+        local weps = game:GetService("ReplicatedStorage").Weapons
+
+local values = {
+    {Name = "Range", Value = 99999}
+}
+
+for _, descendant in ipairs(weps:GetDescendants()) do
+    for _, value in ipairs(values) do
+        local cum = descendant:FindFirstChild(value.Name)
+        if cum then
+            cum:Destroy()
+        end
+        
+        local NV = Instance.new("NumberValue")
+        NV.Name = value.Name
+        NV.Value = value.Value
+        NV.Parent = descendant
+    end
+end
+end,
     spin = function()
         local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
         while true do
@@ -213,33 +234,27 @@ end,
         rconsoleprint("@@YELLOW@@")
         rconsoleprint("Available commands:\n")
 rconsoleprint("- infammo: Enables infinite ammo\n")
-wait(0.1)
+
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
-wait(0.1)
-rconsoleprint("- spin: Makes your character spin\n")
-wait(0.1)
-rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
-wait(0.1)
+
 rconsoleprint("- help: Self Explanatory\n")
-wait(0.1)
-rconsoleprint("- mapdetect: Currently broken :(\n")
-wait(0.1)
+
 rconsoleprint("- parvus: Loads Parvus Hub\n")
-wait(0.1)
+
 rconsoleprint("- op: Makes your gunz overpowered\n")
-wait(0.1)
+
 rconsoleprint("- ad: Advertises Valkreion\n")
-wait(0.1)
+
 rconsoleprint("- shop: Serverhops\n")
-wait(0.1)
+
 rconsoleprint("- serverhop: serverhops\n")
-wait(0.1)
+
 rconsoleprint("- re: refreshes local char\n")
-wait(0.1)
+
 rconsoleprint("- selfban: just why?\n")
-wait(0.1)
+
 rconsoleprint("- cum: cum lmao\n")
-wait(0.1)
+
 rconsoleprint("- modammo: mods ammo\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
@@ -259,51 +274,44 @@ rconsoleprint([[
     ]])
 
 rconsoleprint("@@MAGENTA@@")
-wait(0.1)
+
 rconsoleprint("Made by **Xfu1vD8zCtw9OJgiLrnNXfu1vD8zCtw9#5355** \n")
-wait(0.1)
+
 rconsoleprint("Available commands:\n")
 rconsoleprint("@@RED@@")
 rconsoleprint("- infammo: Enables infinite ammo\n")
-wait(0.1)
+
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
-wait(0.1)
-rconsoleprint("- spin: Makes your character spin\n")
-wait(0.1)
-rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
-wait(0.1)
+
 rconsoleprint("- help: Self Explanatory\n")
-wait(0.1)
-rconsoleprint("- mapdetect: Currently broken :(\n")
-wait(0.1)
+
 rconsoleprint("- parvus: Loads Parvus Hub\n")
-wait(0.1)
+
 rconsoleprint("- op: Makes your gunz overpowered\n")
-wait(0.1)
+
 rconsoleprint("- ad: Advertises Valkreion\n")
-wait(0.1)
+
 rconsoleprint("- shop: Serverhops\n")
-wait(0.1)
+
 rconsoleprint("- serverhop: serverhops\n")
-wait(0.1)
+
 rconsoleprint("- re: refreshes local char\n")
-wait(0.1)
+
 rconsoleprint("- selfban: just why?\n")
-wait(0.1)
+
 rconsoleprint("- cum: cum lmao\n")
-wait(0.1)
+
+rconsoleprint("- reach: activates melee reach\n")
+
 rconsoleprint("- modammo: mods ammo\n")
-wait(0.1)
 rconsoleprint("@@WHITE@@")
-rconsoleprint("- Everything is CaSe-SenSiTiVe\n")
-rconsoleprint("- Also if anything breaks (Like you cant type)\n")
-rconsoleprint("- Just re-execute the script.\n")
-wait(0.1)
+rconsoleprint("If nothing works/something breaks, PLEASE re-execute da shitz\n")
+rconsoleprint("plus DO NOT DELETE THIS PAGE\n")
+
 rconsoleprint("@@MAGENTA@@")
 rconsoleprint("It took " .. (tick()-Loadtime)*1000 .. " milliseconds to load!\n")
-wait(0.1)
+
 rconsoleprint("@@WHITE@@")
-rconsoleprint("No Whitelisted players found.\n")
 
 while true do
     local input = rconsoleinput()
@@ -316,33 +324,27 @@ while true do
 rconsoleprint("@@YELLOW@@")
 rconsoleprint("Available commands:\n")
 rconsoleprint("- infammo: Enables infinite ammo\n")
-wait(0.1)
+
 rconsoleprint("- uninfammo: Disables infinite ammo\n")
-wait(0.1)
-rconsoleprint("- spin: Makes your character spin\n")
-wait(0.1)
-rconsoleprint("- ws [number]: Changes your character's walkspeed\n")
-wait(0.1)
-rconsoleprint("- help: Self Explanatory\n")
-wait(0.1)
+
 rconsoleprint("- mapdetect: Currently broken :(\n")
-wait(0.1)
+
 rconsoleprint("- parvus: Loads Parvus Hub\n")
-wait(0.1)
+
 rconsoleprint("- op: Makes your gunz overpowered\n")
-wait(0.1)
+
 rconsoleprint("- ad: Advertises Valkreion\n")
-wait(0.1)
+
 rconsoleprint("- shop: Serverhops\n")
-wait(0.1)
+
 rconsoleprint("- serverhop: serverhops\n")
-wait(0.1)
+
 rconsoleprint("- re: refreshes local char\n")
-wait(0.1)
+
 rconsoleprint("- selfban: just why?\n")
-wait(0.1)
+
 rconsoleprint("- cum: cum lmao\n")
-wait(0.1)
+
 rconsoleprint("- modammo: mods ammo\n")
         for cmd, _ in pairs(commands) do
             rconsoleprint("- " .. cmd .. "\n")
@@ -357,23 +359,8 @@ end
 if game.PlaceId == 8947656544 then
 rconsoleclear()
 rconsoleprint("@@LIGHT_CYAN@@")
-rconsoleprint("This is barely supported lol, I will still try to find things to exploit!\n")
+rconsoleprint("fuck you for playing this\n")
 else
-rconsolename("unsupported game")
 rconsoleprint("@@WHITE@@")
-rconsoleprint("Unsupported game!")
+rconsoleprint("Unsupported game\n")
 end
-repeat wait() until game:IsLoaded()
-
-function handle(args)
-    for i,p in pairs({"ItsMeLucke","chloenpokkemon","xIcebergs","flamible25","c_asedy"}) do
-        if table.find(args, p) then
-            game:GetService("ReplicatedStorage").Events.ChatMessage:FireServer("mb bae")
-            break
-        end
-    end
-end
-
-game:GetService("ReplicatedStorage").Events.ChatChatted.OnClientEvent:Connect(function(speaker, message)
-    handle(string.split(message, " "))
-end)
